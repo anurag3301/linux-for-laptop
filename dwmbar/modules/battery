@@ -13,6 +13,7 @@ FULL_AT=98
 
 BAT_ICON=""
 ICON=""
+COLOR="\x04"
 
 get_battery()
 {
@@ -21,8 +22,13 @@ get_battery()
 	if [ -d /sys/class/power_supply/BAT1 ]; then
 		capacity=$(cat /sys/class/power_supply/BAT1/capacity)
 		charging=$(cat /sys/class/power_supply/BAT1/status)
+		if [[ $capacity -le 25 ]]; then
+            COLOR="\x0a"
+        fi
+
 		if [[ "$charging" == "Charging" ]]; then
 			ICON="$CHARGING_ICON"
+            COLOR="\x06"
 		elif [[ $capacity -le 25 ]]; then
 			ICON="$WARNING_ICON"
 		fi
@@ -36,8 +42,9 @@ get_battery()
 		elif [[ $capacity -le $FULL_AT ]]; then
 			BAT_ICON=$BATTERY_2_ICON
 		fi
+
 	fi
-	echo "$ICON$BAT_ICON  $capacity%"
+	printf "$COLOR%s%s  %s%%\x01\\n" "$ICON" "$BAT_ICON" "$capacity";
 }
 
 get_battery
