@@ -1,0 +1,36 @@
+# Wallpaper
+nitrogen --restore &
+
+# DWM Status
+# dwmbar &
+
+# Notification client
+# dunst &
+
+# The compositor
+# picom &
+
+# Enable Numlock
+# numlockx &
+
+# Startup application
+# spotify &
+# sleep 1
+# xdotool set_window --classname Spotify --class spotify --name Spotify $(wmctrl -l | awk 'END{print $1}')
+# discord &
+# brave &
+# kdeconnect-app &
+# xournalpp &
+# thunderbird &
+
+
+while true; do
+    # Log stderror to a file 
+    dwm 2> ~/.dwm.log
+    # No error logging
+    dwm >/dev/null 2>&1
+done
+
+# Execute dwm
+exec dwm
+
