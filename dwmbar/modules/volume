@@ -5,8 +5,13 @@
 get_volume(){
     speakers="$(pactl list sinks | grep Active | grep Speaker)"
     headphone="$(pactl list sinks | grep Active | grep Headphones)"
+    bluetooth="$(pactl get-default-sink | grep bluez_sink)"
 
-    if [ ${#speakers} -gt 0 ]
+    if [ ${#bluetooth} -gt 0 ]
+	then
+		VOLUME_ON_ICON=''
+		VOLUME_MUTED_ICON=''
+    elif [ ${#speakers} -gt 0 ]
 	then
 		VOLUME_ON_ICON=''
 		VOLUME_MUTED_ICON='婢'
