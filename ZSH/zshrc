@@ -5,9 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [[ "nvim" != $(ps -p $(ps -p $$ -o ppid=) o args= | awk '{print $1 }') ]]
+if [[ "/dev/tty2" == $(tty) ]]
 then
-    neofetch
+    startx
 fi
 
 export ZSH="/home/anurag/.oh-my-zsh"
