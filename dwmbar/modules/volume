@@ -6,13 +6,14 @@ get_volume(){
     speakers="$(pactl list sinks | grep Active | grep Speaker)"
     headphone="$(pactl list sinks | grep Active | grep Headphones)"
 
-    if [ ${#speakers} == 0 ]
+    if [ ${#speakers} -gt 0 ]
 	then
-		VOLUME_ON_ICON=''
-		VOLUME_MUTED_ICON='ﳌ'
-	else
 		VOLUME_ON_ICON=''
 		VOLUME_MUTED_ICON='婢'
+    elif [ ${#headphone} -gt 0 ] 
+    then
+		VOLUME_ON_ICON=''
+		VOLUME_MUTED_ICON='ﳌ'
 	fi
         active_sink=$(pacmd list-sinks | awk '/* index:/{print $3}')
         curStatus=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | awk '/muted/{ print $2}')
