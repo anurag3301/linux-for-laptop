@@ -36,6 +36,8 @@ alias du='/sbin/du -h'
 alias mtp='aft-mtp-mount ~/mnt'
 alias ssh='kitty +kitten ssh'
 alias mkdwm='rm -rf config.h && sudo make clean install'
+alias btdc='bluetoothctl disconnect && bluetoothctl power off'
+alias btcn='bluetoothctl power on; bluetoothctl connect 8C:64:A2:2F:E6:99'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
