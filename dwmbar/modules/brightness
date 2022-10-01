@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Prints out the time
+
+PREFIX='盛 '
+
+get_brightness()
+{
+    printf "\x04%s%s\x01\\n" "$PREFIX" "$(brightnessctl | grep Current |  cut -d "(" -f2 | cut -d ")" -f1)"
+}
+
+get_brightness
