@@ -110,8 +110,8 @@ static const char *code[] = {"code", NULL};
 static const char *mon_off[] = {"xset", "dpms", "force", "off",  NULL};
 
 const char screensot_script[] = "var=~/pix/$(date '+%d%m%y%H%M%S').png; maim -s -u -m 10 $var; cat $var | xclip -selection clipboard -t image/png; notify-send 'Screenshot captured' -t 3000 -i \"$var\"";
-const char brigtness_dec[] = "brightnessctl -n s 10%-";
-const char brigtness_inc[] = "brightnessctl s 10%+";
+const char brigtness_dec[] = "brightnessctl -n s 5%-";
+const char brigtness_inc[] = "brightnessctl s 5%+";
 
 static Key keys[] = {
   /* modifier                     key        function        argument */
