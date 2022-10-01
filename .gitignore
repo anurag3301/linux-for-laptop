@@ -1,7 +1,7 @@
 **/.ccls-cache/**
-**/config.h
-**/drw.o
-**/dwm.o
-**/util.o
-**/dwm
+config.h
+drw.o
+dwm.o
+util.o
+dwm
 state.yml
